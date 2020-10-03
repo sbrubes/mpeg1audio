@@ -421,7 +421,7 @@ def get_duration_from_sample_count(sample_count, sample_rate):
     :rtype: datetime.timedelta
     
     """
-    return timedelta(seconds=int(round(sample_count / sample_rate)))
+    return timedelta(seconds=int(sample_count / sample_rate))
 
 def get_duration_from_size_bitrate(mpeg_size, bitrate):
     """Calculate duration from constant bitrate and MPEG Size.
