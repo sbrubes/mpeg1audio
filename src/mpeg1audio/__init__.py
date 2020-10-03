@@ -283,7 +283,7 @@ class MPEGAudioFrame(MPEGAudioFrameBase):
                                 max_chunks=max_chunks)
 
         for chunk_offset, chunk in chunks:
-            for found in utils.find_all_overlapping(chunk, chr(255)):
+            for found in utils.find_all_overlapping(chunk, 0xFF):
                 consecutive_chunks = \
                     utils.chunked_reader(file,
                                     chunk_size=chunk_size,
@@ -320,7 +320,7 @@ class MPEGAudioFrame(MPEGAudioFrameBase):
         """
         previous_mpegframe = None
         previous_mpegframe_offset = None
-        previous_chunk = ""
+        previous_chunk = b""
         next_mpegframe_offset = header_offset
 
         for next_chunk_offset, next_chunk in chunks:

@@ -52,7 +52,7 @@ class XING(VBRHeader):
         # TODO: LOW: Search for Xing is not needed, it has specific place, but
         # what?
         chunk_offset, chunk = file.tell(), file.read(1024)
-        beginning_of_xing = chunk.find('Xing')
+        beginning_of_xing = chunk.find(b'Xing')
 
         # Found the beginning of xing
         if beginning_of_xing != -1:
