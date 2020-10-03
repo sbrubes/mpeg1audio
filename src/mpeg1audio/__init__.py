@@ -37,7 +37,7 @@ handling of exception.
 
 """
 import os
-from mpeg1audio.utils import FileOpener
+from .utils import FileOpener
 
 __version__ = "0.5.5"
 __release__ = "0.5.5 alpha"
