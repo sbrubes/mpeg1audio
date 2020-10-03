@@ -191,7 +191,7 @@ def genmin(generator, min):
     cache = []
     for index in range(min): #@UnusedVariable
         try:
-            cache.append(generator.next())
+            cache.append(next(generator))
         except StopIteration:
             raise ValueError('Minimum amount not met.')
 

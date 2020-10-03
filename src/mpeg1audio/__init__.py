@@ -72,7 +72,7 @@ __license__ = "FreeBSD, see COPYING"
 from datetime import timedelta
 from mpeg1audio import headers
 from mpeg1audio import utils
-from headers import MPEGAudioHeaderEOFException, MPEGAudioHeaderException
+from .headers import MPEGAudioHeaderEOFException, MPEGAudioHeaderException
 import math
 import struct
 
@@ -612,7 +612,7 @@ class MPEGAudio(MPEGAudioFrameBase):
         """
 
         # If instiated using path to file
-        if isinstance(file, (str, unicode)):
+        if isinstance(file, str):
             self._filepath = file
 
             # Open the file
@@ -931,7 +931,7 @@ class MPEGAudio(MPEGAudioFrameBase):
         :see: :class:`XING`
         
         """
-        from xing import XING, XINGHeaderException
+        from .xing import XING, XINGHeaderException
         try:
             self.xing = XING.find_and_parse(self._file, self.frames[0].offset)
         except XINGHeaderException:
@@ -945,7 +945,7 @@ class MPEGAudio(MPEGAudioFrameBase):
         :see: :class:`VBRI`
         
         """
-        from vbri import VBRI, VBRIHeaderException
+        from .vbri import VBRI, VBRIHeaderException
         try:
             self.vbri = VBRI.find_and_parse(self._file, self.frames[0].offset)
         except VBRIHeaderException:
